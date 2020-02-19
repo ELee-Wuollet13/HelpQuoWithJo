@@ -32,7 +32,7 @@ function Ticket(props){
     {console.log(props)}
     <h3>{props.location} - {props.names}</h3>
     <hr style={hrStyle}/>
-    <h4>{displayTimeOpen(props.timeOpen)} ago</h4>
+      <h4>{props.formattedWaitTime}</h4>
     <p><em>{props.issue}</em></p>
 
     </div>
@@ -43,6 +43,6 @@ Ticket.propTypes = {
   names: PropTypes.string,
   location: PropTypes.string,
   issue: PropTypes.string,
-  timeOpen: PropTypes.instanceOf(Moment).isRequired
+  formattedWaitTime: PropTypes.string.isRequired,
 };
 export default Ticket;
