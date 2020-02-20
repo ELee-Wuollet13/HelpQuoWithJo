@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
 import Moment from 'moment';
 
-function NewTicketForm(props){
+
+function EditTicketForm(props){
+
   let _names = null;
   let _location = null;
   let _issue = null;
 
-  function handleNewTicketFormSubmission(event) {
+  function handleEditTicketFormSubmission(event) {
     event.preventDefault();
-  props.onNewTicketCreation({names: _names.value, location: _location.value, issue: _issue.value, id: v4, timeOpen: new Moment()});
+    props.onEditTicketCreation({names: _names.value, location: _location.value, issue: _issue.value, timeOpen: new Moment()});
     _names.value = '';
     _location.value = '';
     _issue.value = '';
@@ -18,7 +19,7 @@ function NewTicketForm(props){
 
   return (
     <div>
-      <form style={{margin: "10px", position: "relative", zIndex: "550"}}onSubmit={handleNewTicketFormSubmission}>
+      <form style={{margin: "10px", position: "relative", zIndex: "550"}}onSubmit={handleEditTicketFormSubmission}>
         <input
         type='text'
         id='names'
@@ -33,14 +34,14 @@ function NewTicketForm(props){
         id='issue'
         placeholder='Describe your issue.'
         ref={(textarea) => {_issue = textarea;}}/>
-        <button type='submit'>Help!</button>
+        <button type='submit'>Update my Ticket!</button>
 
       </form>
     </div>
 
   );
-}
-NewTicketForm.propTypes = {
-  onNewTicketCreation: PropTypes.func
-};
-export default NewTicketForm;
+  }
+  EditTicketForm.propTypes = {
+  onEditTicketCreation: PropTypes.func
+  };
+  export default EditTicketForm;

@@ -1,7 +1,8 @@
 import React from "react";
 import Moment from 'moment';
 import PropTypes from "prop-types";
-
+import { Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Ticket(props){
 
   let content = {
@@ -34,7 +35,8 @@ function Ticket(props){
     <hr style={hrStyle}/>
       <h4>{props.formattedWaitTime}</h4>
     <p><em>{props.issue}</em></p>
-
+    <Link to="/EditTicket">Update Ticket</Link>
+    
     </div>
     </div>
   );
